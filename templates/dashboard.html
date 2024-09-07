@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function showDetails(metric) {
+            const allDetails = document.querySelectorAll('.details');
+            allDetails.forEach(detail => detail.style.display = 'none');  // Hide all details
+            document.getElementById(metric + '-details').style.display = 'block';  // Show the selected detail
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="metric" onclick="showDetails('ready_to_ship')">Ready to Ship: <span>{{ ready_to_ship }}</span></div>
+        <div class="metric" onclick="showDetails('out_for_delivery')">Out for Delivery: <span>{{ out_for_delivery }}</span></div>
+        <div class="metric" onclick="showDetails('returned_to_origin')">Returned to Origin: <span>{{ returned_to_origin }}</span></div>
+        <div class="metric" onclick="showDetails('returning_to_origin')">Returning to Origin: <span>{{ returning_to_origin }}</span></div>
+        <div class="metric" onclick="showDetails('breach_count')">Breach Count: <span>{{ breach_count }}</span></div>
+    </div>
+
+    <!-- Ready to Ship Details -->
+    <div id="ready_to_ship-details" class="details" style="display: none;">
+        <h2>Ready to Ship Details</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Reference No.</th>
+                    <th>Waybill</th>
+                    <th>Seller Name</th>
+                    <th>Product Description</th>
+                    <th>Pick Up Date</th>
+                    <th>Estimated Delivery Date</th>
+                    <th>Status Type</th>
+                    <th>Current Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in ready_to_ship_details %}
+                <tr>
+                    <td>{{ item['Reference No.'] }}</td>
+                    <td>{{ item['Waybill'] }}</td>
+                    <td>{{ item['Seller Name'] }}</td>
+                    <td>{{ item['Product Description'] }}</td>
+                    <td>{{ item['Pick Up Date'] }}</td>
+                    <td>{{ item['Estimated Delivery Date'] }}</td>
+                    <td>{{ item['Status Type'] }}</td>
+                    <td>{{ item['Current Status'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Out for Delivery Details -->
+    <div id="out_for_delivery-details" class="details" style="display: none;">
+        <h2>Out for Delivery Details</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Reference No.</th>
+                    <th>Waybill</th>
+                    <th>Seller Name</th>
+                    <th>Product Description</th>
+                    <th>Pick Up Date</th>
+                    <th>Estimated Delivery Date</th>
+                    <th>Status Type</th>
+                    <th>Current Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in out_for_delivery_details %}
+                <tr>
+                    <td>{{ item['Reference No.'] }}</td>
+                    <td>{{ item['Waybill'] }}</td>
+                    <td>{{ item['Seller Name'] }}</td>
+                    <td>{{ item['Product Description'] }}</td>
+                    <td>{{ item['Pick Up Date'] }}</td>
+                    <td>{{ item['Estimated Delivery Date'] }}</td>
+                    <td>{{ item['Status Type'] }}</td>
+                    <td>{{ item['Current Status'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Returned to Origin Details -->
+    <div id="returned_to_origin-details" class="details" style="display: none;">
+        <h2>Returned to Origin Details</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Reference No.</th>
+                    <th>Waybill</th>
+                    <th>Seller Name</th>
+                    <th>Product Description</th>
+                    <th>Pick Up Date</th>
+                    <th>Estimated Delivery Date</th>
+                    <th>Status Type</th>
+                    <th>Current Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in returned_to_origin_details %}
+                <tr>
+                    <td>{{ item['Reference No.'] }}</td>
+                    <td>{{ item['Waybill'] }}</td>
+                    <td>{{ item['Seller Name'] }}</td>
+                    <td>{{ item['Product Description'] }}</td>
+                    <td>{{ item['Pick Up Date'] }}</td>
+                    <td>{{ item['Estimated Delivery Date'] }}</td>
+                    <td>{{ item['Status Type'] }}</td>
+                    <td>{{ item['Current Status'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Returning to Origin Details -->
+    <div id="returning_to_origin-details" class="details" style="display: none;">
+        <h2>Returning to Origin Details</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Reference No.</th>
+                    <th>Waybill</th>
+                    <th>Seller Name</th>
+                    <th>Product Description</th>
+                    <th>Pick Up Date</th>
+                    <th>Estimated Delivery Date</th>
+                    <th>Status Type</th>
+                    <th>Current Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in returning_to_origin_details %}
+                <tr>
+                    <td>{{ item['Reference No.'] }}</td>
+                    <td>{{ item['Waybill'] }}</td>
+                    <td>{{ item['Seller Name'] }}</td>
+                    <td>{{ item['Product Description'] }}</td>
+                    <td>{{ item['Pick Up Date'] }}</td>
+                    <td>{{ item['Estimated Delivery Date'] }}</td>
+                    <td>{{ item['Status Type'] }}</td>
+                    <td>{{ item['Current Status'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Breach Count Details -->
+    <div id="breach_count-details" class="details" style="display: none;">
+        <h2>Breach Count Details</h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Reference No.</th>
+                    <th>Waybill</th>
+                    <th>Seller Name</th>
+                    <th>Product Description</th>
+                    <th>Pick Up Date</th>
+                    <th>Estimated Delivery Date</th>
+                    <th>Status Type</th>
+                    <th>Current Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in reference_list %}
+                <tr>
+                    <td>{{ item['Reference No.'] }}</td>
+                    <td>{{ item['Waybill'] }}</td>
+                    <td>{{ item['Seller Name'] }}</td>
+                    <td>{{ item['Product Description'] }}</td>
+                    <td>{{ item['Pick Up Date'] }}</td>
+                    <td>{{ item['Estimated Delivery Date'] }}</td>
+                    <td>{{ item['Status Type'] }}</td>
+                    <td>{{ item['Current Status'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
