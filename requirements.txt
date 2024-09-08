@@ -1,1 +1,2 @@
-prthon
+python
+gunicorn
