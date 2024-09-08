@@ -1,123 +1,57 @@
-
-/* Styles for index.html */
-
-/* Global Styles */
+/* General Styles */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #EBD3F8;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    padding: 20px;
     margin: 0;
-    background: linear-gradient(135deg, #2E073F, #7A1CAC);
-    color: white;
+    background: #EBD3F8; /* Background color */
+    color: #333;
 }
 
-/* Upload Container */
-.upload-container {
-    background-color: white;
-    border-radius: 15px;
-    padding: 30px;
-    max-width: 500px;
-    width: 100%;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.1);
+.container {
+    display: flex;
+    gap: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    color: #7A1CAC;
     text-align: center;
-    color: #2E073F;
 }
 
-/* Header */
-.upload-header h1 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #2E073F;
-}
-
-.upload-header p {
-    font-size: 16px;
-    margin-bottom: 20px;
-}
-
-/* File Input Styles */
-.file-input-wrapper {
-    position: relative;
-    margin-bottom: 20px;
-}
-
-.file-input {
-    opacity: 0;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-}
-
-.file-label {
-    display: block;
-    padding: 15px;
-    background-color: #7A1CAC;
-    color: black; /* Ensure text color contrasts with background */
+/* Styles for index.html */
+form {
+    background: #fff;
+    padding: 20px;
     border-radius: 8px;
-    font-size: 16px; /* Adjust font size if necessary */
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    font-weight: bold; /* Make the text bold for better visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+    width: fit-content;
 }
 
-.file-label:hover {
-    background-color: #AD49E1;
+input[type="file"] {
+    border: 2px solid #7A1CAC;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 20px;
 }
 
-.file-label i {
-    margin-right: 8px;
-    vertical-align: left; /* Align the icon with the text */
-}
-
-
-/* Upload Button */
-.upload-button {
-    display: inline-block;
-    padding: 15px 30px;
-    background-color: #AD49E1;
-    color: white;
+button {
+    padding: 12px 24px;
     border: none;
-    border-radius: 8px;
+    background: #7A1CAC;
+    color: white;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s;
 }
 
-.upload-button:hover {
-    background-color: #7A1CAC;
+button:hover {
+    background: #2E073F;
     transform: scale(1.05);
 }
-
-.upload-button i {
-    margin-right: 10px;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    .upload-container {
-        padding: 20px;
-    }
-
-    .file-label {
-        font-size: 14px;
-    }
-
-    .upload-button {
-        font-size: 14px;
-        padding: 12px 20px;
-    }
-}
-
-
-
 
 /* Styles for dashboard.html */
 .metric {
